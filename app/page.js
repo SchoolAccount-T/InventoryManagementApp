@@ -126,7 +126,7 @@
             alignItems={'center'}
           >
             <Typography variant={'h2'} color={'#333'} textAlign={'center'}>
-              Inventory of Items
+              Your Inventory of Items
             </Typography>
           </Box>
           <Stack width="800px" height="300px" spacing={2} overflow={'auto'}>
