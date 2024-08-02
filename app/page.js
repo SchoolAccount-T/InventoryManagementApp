@@ -122,16 +122,16 @@
         <Button variant="contained" onClick={handleOpen}>
           Add New Item
         </Button>
-        <Box border={'4px solid #808080'}>
+        <Box border={'0px solid #808080'}>
           <Box
             width="800px"
             height="100px"
-            bgcolor={'#808080'}
+            borderBottom='5px solid #333'
             display={'flex'}
             justifyContent={'center'}
             alignItems={'center'}
           >
-            <Typography variant={'h2'} color={'#000000'} textAlign={'center'}>
+            <Typography variant={'h2'} color={'#333'} textAlign={'center'}>
               Inventory Items
             </Typography>
           </Box>
