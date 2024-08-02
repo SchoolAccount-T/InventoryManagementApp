@@ -12,7 +12,7 @@
       transform: 'translate(-50%, -50%)',
       width: 400,
       bgcolor: 'white',
-      border: '2px solid #000',
+      border: '0px solid #000',
       boxShadow: 24,
       p: 4,
       display: 'flex',
@@ -64,6 +64,12 @@
       await updateInventory()
     }
 
+    const clear = async (item) => {
+      const docRef = doc(collection(firestore, 'inventory'), item)
+      deleteDoc(docRef)
+      await updateInventory()
+    }
+
     useEffect(()=> {
       updateInventory()
     }, [])
@@ -103,7 +109,7 @@
               <Button
                 variant="outlined"
                 onClick={() => {
-                  addItem(itemName)
+                  addItem(itemName.toLowerCase())
                   setItemName('')
                   handleClose()
                 }}
@@ -116,17 +122,17 @@
         <Button variant="contained" onClick={handleOpen}>
           Add New Item
         </Button>
-        <Box border={'0px solid #333'}>
+        <Box border={'4px solid #808080'}>
           <Box
             width="800px"
             height="100px"
-            bgcolor={'#ADD8E6'}
+            bgcolor={'#808080'}
             display={'flex'}
             justifyContent={'center'}
             alignItems={'center'}
           >
-            <Typography variant={'h2'} color={'#333'} textAlign={'center'}>
-              Inventory
+            <Typography variant={'h2'} color={'#000000'} textAlign={'center'}>
+              Inventory Items
             </Typography>
           </Box>
           <Stack width="800px" height="300px" spacing={2} overflow={'auto'}>
@@ -142,13 +148,19 @@
                 paddingX={5}
               >
                 <Typography variant={'h3'} color={'#333'} textAlign={'center'}>
-                  {name.charAt(0).toUpperCase() + name.slice(1)}
+                  {name}
                 </Typography>
                 <Typography variant={'h3'} color={'#333'} textAlign={'center'}>
-                  Quantity: {quantity}
+                  #{quantity}
                 </Typography>
+                <Button variant="contained" onClick={() => addItem(name)}>
+                  Add
+                </Button>
                 <Button variant="contained" onClick={() => removeItem(name)}>
                   Remove
+                </Button>
+                <Button variant="contained" onClick={() => clear(name)}>
+                  clear
                 </Button>
               </Box>
             ))}
