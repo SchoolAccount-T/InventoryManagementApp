@@ -97,7 +97,7 @@
             <Typography id="modal-modal-title" variant="h6" component="h2">
               Add Item
             </Typography>
-            <Stack width="100%" direction={'row'} spacing={2}>
+            <Stack width="100%" direction={'column'} spacing={2}>
               <TextField
                 id="outlined-basic"
                 label="Item"
@@ -122,7 +122,7 @@
         <Button variant="contained" onClick={handleOpen}>
           Add New Item
         </Button>
-        <Box border={'0px solid #808080'}>
+        <Box border={'0px solid #808080'} >
           <Box
             width="800px"
             height="100px"
@@ -131,21 +131,21 @@
             justifyContent={'center'}
             alignItems={'center'}
           >
-            <Typography variant={'h2'} color={'#333'} textAlign={'center'}>
+            <Typography variant={'h2'} color={'#333'} textAlign={'center'} >
               Inventory Items
             </Typography>
           </Box>
-          <Stack width="800px" height="300px" spacing={2} overflow={'auto'}>
+          <Stack width="800px" height="300px" spacing={2} overflow={'auto'} >
             {inventory.map(({name, quantity}) => (
               <Box
                 key={name}
                 width="100%"
-                minHeight="150px"
+                minHeight="100px"
                 display={'flex'}
                 justifyContent={'space-between'}
                 alignItems={'center'}
-                bgcolor={'#ffffff'}
                 paddingX={5}
+                opacity='0.6'
               >
                 <Typography variant={'h3'} color={'#333'} textAlign={'center'}>
                   {name}
@@ -159,7 +159,7 @@
                 <Button variant="contained" onClick={() => removeItem(name)}>
                   Remove
                 </Button>
-                <Button variant="contained" onClick={() => clear(name)}>
+                <Button variant="contained"  onClick={() => clear(name)}>
                   clear
                 </Button>
               </Box>
@@ -168,4 +168,5 @@
         </Box>
       </Box>
     )
+    
   }

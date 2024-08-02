@@ -81,6 +81,7 @@
 }
 HTML{
   font-family:Helvetica;
+  background-image: url("bg.png");
 }
 
 /* 
