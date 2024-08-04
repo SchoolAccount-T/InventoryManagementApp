@@ -119,7 +119,7 @@
             </Stack>
           </Box>
         </Modal>
-        <Button variant="contained" onClick={handleOpen}>
+        <Button variant="outlined" onClick={handleOpen}>
           Add New Item
         </Button>
         <Box border={'0px solid #808080'} >
@@ -128,10 +128,10 @@
             height="100px"
             borderBottom='5px solid #333'
             display={'flex'}
-            justifyContent={'center'}
+            justifyContent={'left'}
             alignItems={'center'}
           >
-            <Typography variant={'h2'} color={'#333'} textAlign={'center'} >
+            <Typography variant={'h2'} color={'#333'} textAlign={'right'} >
               Inventory Items
             </Typography>
           </Box>
@@ -142,25 +142,22 @@
                 width="100%"
                 minHeight="100px"
                 display={'flex'}
-                justifyContent={'space-between'}
+                justifyContent={'flex-end'}
                 alignItems={'center'}
                 paddingX={5}
                 opacity='0.6'
               >
-                <Typography variant={'h3'} color={'#333'} textAlign={'center'}>
-                  {name}
-                </Typography>
-                <Typography variant={'h3'} color={'#333'} textAlign={'center'}>
-                  #{quantity}
-                </Typography>
-                <Button variant="contained" onClick={() => addItem(name)}>
+                <Typography variant={'h3'} color={'#333'} textAlign={'center'} justifyContent={'flex-start'}>            
+                  {quantity} {name}
+                </Typography>   
+                <Button margin='0' spacing={0} variant="text" onClick={() => addItem(name)}>
                   Add
                 </Button>
-                <Button variant="contained" onClick={() => removeItem(name)}>
+                <Button margin='0' spacing={0} variant="text" onClick={() => removeItem(name)}>
                   Remove
                 </Button>
-                <Button variant="contained"  onClick={() => clear(name)}>
-                  clear
+                <Button  spacing={0} margin='0' variant="text"  onClick={() => clear(name)}>
+                  Delete
                 </Button>
               </Box>
             ))}
